@@ -8,6 +8,18 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.1.2] - 2026-06-05
+
+### Changed
+
+- `README.md`: 스킬 설치(`install.sh` / `install.bat`) 위주로 재작성, 상세 가이드 내용은 `docs/guide.md` 링크로 대체
+- `docs/guide.md`: 스킬 설치 섹션 신설 및 구버전 내용 현행화
+  - 구성요소 테이블에 `skills/`, `install.sh`, `install.bat` 추가
+  - Linux/macOS/Windows 스킬 설치 절차 추가
+  - 전역 설정, hook 적용, RTK 주의사항, 점검 체크리스트 정리
+
+---
+
 ## [26.1.1] - 2026-06-05
 
 ### Added
