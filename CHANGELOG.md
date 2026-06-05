@@ -2,51 +2,41 @@
 
 All notable changes to Jamong-Harvest will be documented in this file.
 
-이 프로젝트는 Jamong의 AI 개발 운영 템플릿, safety hook, 글로벌 적용 가이드를 관리합니다.
+이 프로젝트는 Jamong의 AI 개발 운영 템플릿, 공통 스킬, safety hook, 글로벌 적용 가이드를 관리합니다.
 
-## [Unreleased]
+버전 형식: `YY.메이저.마이너`
+
+---
+
+## [26.1.1] - 2026-06-05
 
 ### Added
 
-- Jamong-Harvest 저장소 소개를 `README.md`에 확장했습니다.
-  - “AI로 키우는 개발농장” 컨셉 설명
-  - 저장소 구조 문서화
-  - 빠른 템플릿 적용법 추가
-  - 핵심 운영 원칙 정리
-- Jamong-Harvest 저장소 자체를 위한 루트 `CLAUDE.md`를 추가했습니다.
-  - 저장소 목적과 작업 규칙 정의
-  - 템플릿 수정 원칙 정리
-- Jamong-Harvest 저장소 자체를 위한 루트 `AGENTS.md`를 추가했습니다.
-  - Codex/OMX 및 범용 에이전트 운영 규칙 정의
-  - 관리자 권한 금지, git/remote safety, 검증/완료 보고 규칙 포함
-- 재사용 가능한 프로젝트 템플릿을 추가했습니다.
+- 공통 스킬 구조 신설 (`skills/`)
+  - `skills/git-workflow/SKILL.md`: 브랜치/커밋/PR 규칙
+  - `skills/admin-safety/SKILL.md`: sudo/doas/pkexec 차단 규칙
+  - `skills/completion-report/SKILL.md`: 작업 완료 보고 형식
+  - `skills/code-discipline/SKILL.md`: Karpathy 스타일 코딩 규율
+  - `skills/versioning/SKILL.md`: CHANGELOG.md 기반 버전 관리 및 릴리즈 규칙
+- 스킬 설치 스크립트 추가
+  - `install.sh`: Linux/macOS — Claude Code / Codex 경로 자동 설치 (`skills/` 동적 스캔)
+  - `install.bat`: Windows — 동일 기능
+- `.editorconfig` 추가: UTF-8 / LF / BOM 없음 강제 적용 (한글 깨짐 방지)
+- `README.md` 업데이트: 저장소 구조, 스킬 설치 가이드, 인코딩 주의사항 추가
+- `CLAUDE.md` 업데이트: 스킬 목록 및 설치 경로 섹션 추가
+- 초기 프로젝트 구성
   - `templates/CLAUDE.md`: Claude Code 프로젝트 운영 템플릿
   - `templates/AGENTS.md`: Codex/OMX 및 범용 에이전트 운영 템플릿
-- 관리자 권한 명령 차단 safety hook 예제를 추가했습니다.
-  - `hooks/claude/block-sudo-bash.mjs`
-  - `hooks/codex/block-sudo-bash.mjs`
-  - `sudo`, `doas`, `pkexec` 명령 차단
-  - Jamong 필수 안내 문구 출력
-- 글로벌 개발 환경 적용 가이드를 추가했습니다.
-  - `docs/guide.md`
-  - 새 프로젝트에 템플릿 적용 절차
-  - Claude Code 글로벌 메모리 적용 절차
-  - Codex/OMX 글로벌 AGENTS 적용 절차
-  - Claude/Codex safety hook 적용 및 검증 절차
-  - RTK hook 순서와 주의사항
-- git diff 리뷰용 요약 문서를 추가했습니다.
-  - `docs/diff-review-summary.md`
+  - `hooks/claude/block-sudo-bash.mjs`: Claude Code sudo 차단 hook
+  - `hooks/codex/block-sudo-bash.mjs`: Codex sudo 차단 hook
+  - `docs/guide.md`: 글로벌 개발 환경 적용 가이드
 
-### Verified
+### Fixed
 
-- `hooks/claude/block-sudo-bash.mjs` 문법 검사 통과
-- `hooks/codex/block-sudo-bash.mjs` 문법 검사 통과
-- `sudo apt update` payload 차단 시뮬레이션 성공
-- `git status` safe command 통과 시뮬레이션 성공
-- 템플릿/문서 파일 생성 및 내용 존재 확인
+- Codex 스킬 경로 이중 등록 (`~/.agents/skills/`, `~/.codex/skills/`) — Codex 버전별 경로 차이 대응
 
 ### Notes
 
-- 실제 글로벌 설정 파일은 아직 수정하지 않았습니다.
+- 스킬 파일은 Claude Code / Codex 공통 YAML frontmatter 형식 사용. 파일 분리 없이 단일 소스로 양쪽 설치.
+- 새 스킬 추가 시 `skills/<name>/SKILL.md`만 작성하면 `install.sh`가 자동 인식.
 - commit, tag, push, release, deploy는 수행하지 않았습니다.
-- `docs/guide.md`의 `/path/to/oh-my-codex/...` 예시는 실제 환경 적용 시 설치 경로로 교체해야 합니다.
