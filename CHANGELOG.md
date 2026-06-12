@@ -4,7 +4,33 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 이 프로젝트는 Jamong의 AI 개발 운영 템플릿, 공통 스킬, safety hook, 글로벌 적용 가이드를 관리합니다.
 
-버전 형식: `YY.메이저.마이너`
+버전 형식: `YY.메이저.마이너` (메이저: 새 기능 추가, 마이너: 버그 수정·내부 변경)
+
+---
+
+## [26.1.4] - 2026-06-12
+
+### Changed
+
+- `install.sh`: 기존 스킬 디렉터리가 있으면 삭제 후 재설치하도록 `install_one` 개선
+- `install.bat`: 동일 변경 (Windows)
+
+---
+
+## [26.1.3] - 2026-06-12
+
+### Changed
+
+- `skills/git-workflow/SKILL.md`: main 직접 커밋·푸시 허용 방식으로 재정의
+  - 보호 브랜치 직접 푸시 금지 규칙 제거
+  - PR 필수·squash merge 강제 규칙 제거
+  - 브랜치 작업은 선택 사항으로 변경
+  - 커밋 prefix·한국어·명사형 종결 규칙 유지
+- `skills/versioning/SKILL.md`: 메이저/마이너 버전 기준 명확화
+  - 메이저: 새로운 기능 추가 시 증가 (하위 호환 불가 변경 기준 제거)
+  - 마이너: 버그 수정 또는 내부 코드 수정 시 증가 명시
+- `CHANGELOG.md`: 버전 형식 설명 문구 현행화
+- `CLAUDE.md`, `README.md`, `docs/guide.md`, `SPEC.md`: git-workflow 스킬 설명 문구 현행화
 
 ---
 

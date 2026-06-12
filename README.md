@@ -61,7 +61,7 @@ install.bat all
 
 | 스킬 | 트리거 상황 |
 |------|------------|
-| `git-workflow` | git 명령, PR 생성, 브랜치 전환 시 |
+| `git-workflow` | git 명령, 커밋·푸시, 브랜치 전환 시 |
 | `admin-safety` | sudo/doas/pkexec 실행 시도 시 |
 | `completion-report` | 작업 완료 보고 시 |
 | `code-discipline` | 코드 작성 전 원칙 확인 시 |
