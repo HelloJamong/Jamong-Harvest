@@ -34,9 +34,13 @@ install_one() {
     return 0
   fi
 
-  mkdir -p "$target_base/$skill_name"
-  cp "$source" "$target_base/$skill_name/SKILL.md"
-  echo "  ✓ $target_base/$skill_name/SKILL.md"
+  local target_dir="$target_base/$skill_name"
+
+  [ -d "$target_dir" ] && rm -rf "$target_dir"
+
+  mkdir -p "$target_dir"
+  cp "$source" "$target_dir/SKILL.md"
+  echo "  ✓ $target_dir/SKILL.md"
 }
 
 install_all_to() {

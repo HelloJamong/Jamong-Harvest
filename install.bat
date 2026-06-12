@@ -38,7 +38,8 @@ goto :eof
 :install_one
 :: %1 = target base dir,  %2 = skill name
 set "DEST=%~1\%~2"
-if not exist "%DEST%" mkdir "%DEST%"
+if exist "%DEST%" rmdir /s /q "%DEST%"
+mkdir "%DEST%"
 copy /y "%SKILLS_DIR%\%~2\SKILL.md" "%DEST%\SKILL.md" >nul
 echo   OK  %DEST%\SKILL.md
 goto :eof
