@@ -16,6 +16,8 @@ run_as: inline
 - `sudo`
 - `doas`
 - `pkexec`
+- `su` / `su -`
+- `runuser`
 - 기타 관리자 수준 패키지/시스템/서비스 명령
 
 ## 차단 시 처리 절차

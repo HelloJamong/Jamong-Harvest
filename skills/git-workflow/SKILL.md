@@ -23,3 +23,8 @@ run_as: inline
 - **브랜치 이름 형식 (브랜치를 사용할 경우):** `feat/`, `fix/`, `chore/`, `docs/` 접두사 사용
   - 예: `feat/oauth-login`, `fix/npe-error`, `chore/deps-update`
 - **명시 요청 없이 commit / tag / push / deploy 금지**
+
+## 관련 스킬
+
+- **versioning**: 버전 태그 생성·CHANGELOG 작성이 포함된 커밋 시 함께 확인한다.
+- **completion-report**: 작업 커밋 완료 후 보고 형식을 작성할 때 함께 확인한다.

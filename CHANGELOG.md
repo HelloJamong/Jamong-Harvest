@@ -8,6 +8,17 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.1.5] - 2026-06-12
+
+### Changed
+
+- `skills/git-workflow/SKILL.md`: 관련 스킬 섹션 추가 (versioning, completion-report)
+- `skills/versioning/SKILL.md`: 관련 스킬 섹션 추가 (git-workflow, completion-report)
+- `skills/code-discipline/SKILL.md`: 관련 스킬 섹션 추가 (completion-report)
+- `skills/admin-safety/SKILL.md`: 금지 명령 목록에 `su -`, `runuser` 추가
+
+---
+
 ## [26.1.4] - 2026-06-12
 
 ### Changed

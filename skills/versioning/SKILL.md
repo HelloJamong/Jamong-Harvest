@@ -62,3 +62,8 @@ YY.메이저.마이너
 3. 태그 생성: `git tag 25.1.0`
 4. 태그 push: `git push origin 25.1.0`
 5. GitHub Release 생성 — 본문: 해당 버전 CHANGELOG.md 내용
+
+## 관련 스킬
+
+- **git-workflow**: CHANGELOG 커밋 및 태그 push 시 커밋·푸시 규칙을 함께 확인한다.
+- **completion-report**: 릴리즈 완료 후 보고 형식을 작성할 때 함께 확인한다.
