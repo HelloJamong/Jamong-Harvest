@@ -8,6 +8,15 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.1.6] - 2026-06-14
+
+### Fixed
+
+- `install.bat`: Windows CMD 실행 오류 수정 — LF 전용 라인 엔딩을 CRLF로 변환
+- `.gitattributes` 추가 — `*.bat` 파일이 항상 CRLF로 체크아웃되도록 보장
+
+---
+
 ## [26.1.5] - 2026-06-12
 
 ### Changed
