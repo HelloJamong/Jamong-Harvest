@@ -8,6 +8,14 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.3.3] - 2026-06-22
+
+### Fixed
+
+- `mcp/server.py`: `FastMCP.run()` host/port 인자 미지원 오류 해결 — `mcp.settings`로 설정 방식 변경
+
+---
+
 ## [26.3.2] - 2026-06-22
 
 ### Fixed
