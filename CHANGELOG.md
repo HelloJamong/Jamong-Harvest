@@ -8,6 +8,21 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.5.0] - 2026-06-22
+
+### Added
+
+- `skills/deploy/SKILL.md`: Docker 이미지 배포 규칙 신규 스킬 — Watchtower 금지, digest 기반 자동 업데이트 방식 명시
+
+### Changed
+
+- `skills/versioning/SKILL.md`: 버전 결정 기준 표 추가, Unreleased 항목 사용 금지 규칙 추가
+- `skills/git-workflow/SKILL.md`: commit/push/deploy 절대 금지 규칙 세분화
+
+> 릴리즈 패키지(`install.zip`): `install.sh` · `install.bat` · `skills/` — MCP 서버(`mcp/`)는 미포함
+
+---
+
 ## [26.4.4] - 2026-06-22
 
 ### Fixed
