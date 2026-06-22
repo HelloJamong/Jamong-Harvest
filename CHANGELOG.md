@@ -8,6 +8,14 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.3.4] - 2026-06-22
+
+### Fixed
+
+- `mcp/server.py`: MCP 트랜스포트를 `sse` → `streamable-http`로 변경 — SDK 1.9+ deprecated SSE 대응
+
+---
+
 ## [26.3.3] - 2026-06-22
 
 ### Fixed
