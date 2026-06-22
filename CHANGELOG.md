@@ -8,6 +8,15 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.3.1] - 2026-06-22
+
+### Fixed
+
+- `mcp/install.sh`: venv 생성 후 패키지 설치로 변경 — 시스템 python과 서비스 실행 환경 불일치 문제 해결
+- `mcp/jamong-mcp.service`: venv python 경로로 ExecStart 수정
+
+---
+
 ## [26.3.0] - 2026-06-22
 
 ### Added
