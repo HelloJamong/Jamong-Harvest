@@ -8,6 +8,31 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.3.0] - 2026-06-22
+
+### Added
+
+- `mcp/server.py`: FastMCP 기반 MCP 서버 — `skills://list`, `skill://{name}` 리소스 서빙
+- `mcp/requirements.txt`: Python 의존성 (`mcp[cli]>=1.9.0`)
+- `mcp/install.sh`: 패키지 설치 및 systemd 서비스 등록 안내 스크립트
+- `mcp/jamong-mcp.service`: systemd 유닛 파일 (Rocky Linux / RHEL 계열)
+
+---
+
+## [26.2.0] - 2026-06-22
+
+### Added
+
+- `skills/deploy/SKILL.md`: Docker 이미지 배포 규칙 신규 스킬 — Watchtower 금지, digest 기반 자동 업데이트 방식 명시
+
+### Changed
+
+- `skills/versioning/SKILL.md`: 버전 결정 기준 표 추가 (기능 추가 → 메이저, 버그/수정 → 마이너), Unreleased 항목 사용 금지 규칙 추가
+- `skills/git-workflow/SKILL.md`: commit/push/deploy 절대 금지 규칙 세분화 — 작업 완료 후 자동 실행 금지, 매번 명시적 요청 필요
+- `CLAUDE.md`: 제공 스킬 목록에 `deploy` 항목 추가
+
+---
+
 ## [26.1.6] - 2026-06-14
 
 ### Fixed
