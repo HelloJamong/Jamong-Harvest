@@ -8,6 +8,20 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.4.1] - 2026-06-22
+
+### Added
+
+- `mcp/jamong-mcp.env.example`: 환경변수 템플릿 파일 추가 — `PORT`, `MCP_HOST`, `SERVER_URL`, `MCP_USERNAME`, `MCP_PASSWORD` 일괄 관리
+- `.gitignore`: `mcp/*.env` 추가 — 실제 환경변수 파일 커밋 방지
+
+### Changed
+
+- `mcp/jamong-mcp.service`: 인라인 `Environment=` 제거, `EnvironmentFile=__ENV_FILE__` 방식으로 변경
+- `mcp/install.sh`: `jamong-mcp.env` 자동 생성 및 권한(600) 설정 단계 추가, service 파일 치환 시 `__ENV_FILE__` 경로 반영
+
+---
+
 ## [26.4.0] - 2026-06-22
 
 ### Added
