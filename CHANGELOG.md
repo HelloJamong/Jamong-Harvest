@@ -8,6 +8,14 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.4.2] - 2026-06-22
+
+### Fixed
+
+- `mcp/server.py`: `mcp.server.mcpserver` → `mcp.server.fastmcp.FastMCP`로 import 수정 — PyPI 1.28.0에는 `mcpserver` 모듈이 없고 `fastmcp`가 동일한 `auth_server_provider` API를 지원함
+
+---
+
 ## [26.4.1] - 2026-06-22
 
 ### Added
