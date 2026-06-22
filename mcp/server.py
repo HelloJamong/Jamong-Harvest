@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import uvicorn
 from pathlib import Path
 from mcp.server.fastmcp import FastMCP
 
@@ -28,6 +29,9 @@ def get_skill(name: str) -> str:
 
 
 if __name__ == "__main__":
-    mcp.settings.host = "0.0.0.0"
-    mcp.settings.port = int(os.environ.get("PORT", 8000))
-    mcp.run(transport="streamable-http")
+    port = int(os.environ.get("PORT", 8000))
+    # MCP_HOST: host validation용 외부 도메인 (리버스 프록시 뒤에서 Host 헤더 검증)
+    # uvicorn은 항상 0.0.0.0 바인딩
+    mcp.settings.host = os.environ.get("MCP_HOST", "localhost")
+    mcp.settings.port = port
+    uvicorn.run(mcp.streamable_http_app(), host="0.0.0.0", port=port)

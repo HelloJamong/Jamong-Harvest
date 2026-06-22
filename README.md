@@ -15,7 +15,13 @@ Jamong-Harvest/
 │   ├── admin-safety/
 │   ├── completion-report/
 │   ├── code-discipline/
-│   └── versioning/
+│   ├── versioning/
+│   └── deploy/
+├── mcp/                    # MCP 서버 (스킬을 원격으로 서빙)
+│   ├── server.py
+│   ├── requirements.txt
+│   ├── install.sh
+│   └── jamong-mcp.service
 ├── templates/
 │   ├── CLAUDE.md           # Claude Code 프로젝트 운영 템플릿
 │   └── AGENTS.md           # Codex/OMX 에이전트 운영 템플릿
@@ -66,6 +72,60 @@ install.bat all
 | `completion-report` | 작업 완료 보고 시 |
 | `code-discipline` | 코드 작성 전 원칙 확인 시 |
 | `versioning` | 버전 올리기, CHANGELOG 작성, tag/릴리즈 시 |
+| `deploy` | Docker 이미지 빌드·배포, digest 기반 자동 업데이트 시 |
+
+## MCP 서버
+
+스킬을 파일로 설치하는 대신, MCP 서버에 연결해서 사용할 수 있어요. 여러 머신에서 동일한 스킬을 쓸 때 유용합니다.
+
+### 서버 설치 (Rocky Linux / RHEL 계열)
+
+```bash
+git clone https://github.com/HelloJamong/Jamong-Harvest.git /opt/jamong-harvest
+cd /opt/jamong-harvest
+bash mcp/install.sh
+
+# install.sh 안내에 따라 systemd 서비스 등록
+sudo cp /tmp/jamong-mcp.service /etc/systemd/system/jamong-mcp.service
+```
+
+### MCP_HOST 설정 (필수)
+
+서비스 파일에 외부 도메인을 직접 지정해야 합니다. git에는 플레이스홀더(`your-domain.com`)로 커밋되어 있으므로, **서버에 복사한 뒤 반드시 실제 도메인으로 수정**하세요.
+
+```bash
+sudo vi /etc/systemd/system/jamong-mcp.service
+```
+
+```ini
+# 아래 줄을 실제 도메인으로 변경
+Environment=MCP_HOST=your-domain.com  →  Environment=MCP_HOST=mcp.example.com
+```
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now jamong-mcp
+```
+
+### Claude Code 연결
+
+```json
+{
+  "mcpServers": {
+    "jamong-skills": {
+      "type": "http",
+      "url": "https://your-domain.com/mcp"
+    }
+  }
+}
+```
+
+### 스킬 업데이트
+
+```bash
+cd /opt/jamong-harvest && git pull
+sudo systemctl restart jamong-mcp
+```
 
 ## 인코딩 기준
 

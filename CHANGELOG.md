@@ -8,6 +8,15 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.3.5] - 2026-06-22
+
+### Fixed
+
+- `mcp/server.py`: FastMCP host 검증과 uvicorn 바인딩 분리 — `MCP_HOST` 환경변수로 외부 도메인 설정, uvicorn은 `0.0.0.0` 고정
+- `mcp/jamong-mcp.service`: `MCP_HOST` 환경변수 추가 (플레이스홀더, VM에서 직접 수정 필요)
+
+---
+
 ## [26.3.4] - 2026-06-22
 
 ### Fixed

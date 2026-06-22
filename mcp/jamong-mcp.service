@@ -9,6 +9,7 @@ ExecStart=__VENV_DIR__/bin/python __REPO_DIR__/mcp/server.py
 Restart=always
 RestartSec=5
 Environment=PORT=8000
+Environment=MCP_HOST=your-domain.com
 
 [Install]
 WantedBy=multi-user.target
