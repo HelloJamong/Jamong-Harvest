@@ -109,6 +109,16 @@ sudo systemctl enable --now jamong-mcp
 
 ### Claude Code 연결
 
+CLI로 추가하거나 설정 파일에 직접 입력합니다.
+
+**CLI (권장)**
+
+```bash
+claude mcp add jamong-skills --transport http https://your-domain.com/mcp
+```
+
+**또는 `~/.claude/settings.json` 직접 수정**
+
 ```json
 {
   "mcpServers": {
@@ -119,6 +129,26 @@ sudo systemctl enable --now jamong-mcp
   }
 }
 ```
+
+연결 확인:
+
+```bash
+claude mcp list
+# jamong-skills: https://your-domain.com/mcp 가 표시되면 정상
+```
+
+### Codex 연결
+
+`~/.codex/config.yaml` 에 MCP 서버를 등록합니다.
+
+```yaml
+mcp_servers:
+  - name: jamong-skills
+    url: https://your-domain.com/mcp
+    transport: http
+```
+
+파일이 없으면 신규 생성합니다. Codex 재시작 후 적용됩니다.
 
 ### 스킬 업데이트
 
