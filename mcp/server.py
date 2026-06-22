@@ -114,6 +114,7 @@ if __name__ == "__main__":
         auth_server_provider=provider,
         auth=AuthSettings(
             issuer_url=AnyHttpUrl(server_url),
+            resource_server_url=None,
             client_registration_options=ClientRegistrationOptions(
                 enabled=True,
                 valid_scopes=["mcp"],

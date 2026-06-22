@@ -8,6 +8,14 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.4.3] - 2026-06-22
+
+### Fixed
+
+- `mcp/server.py`: `AuthSettings` 생성 시 `resource_server_url=None` 누락 오류 수정 — PyPI 1.28.0의 `AuthSettings`는 해당 필드가 필수
+
+---
+
 ## [26.4.2] - 2026-06-22
 
 ### Fixed
