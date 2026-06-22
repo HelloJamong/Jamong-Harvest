@@ -8,6 +8,20 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.4.0] - 2026-06-22
+
+### Added
+
+- `mcp/server.py`: MCP OAuth 2.0 인증 추가 — `FastMCP` → `MCPServer`(mcp 1.28+) 마이그레이션, `JamongOAuthProvider` 구현으로 `/.well-known/oauth-authorization-server`, `/register`, `/authorize`, `/token` 엔드포인트 자동 마운트
+- `mcp/server.py`: `/login`, `/login/callback` 커스텀 라우트 추가 — 브라우저 기반 로그인 페이지 제공
+- `mcp/jamong-mcp.service`: `SERVER_URL`, `MCP_USERNAME`, `MCP_PASSWORD` 환경변수 추가
+
+### Changed
+
+- `mcp/requirements.txt`: `mcp[cli]>=1.9.0` → `mcp[cli]>=1.28.0` (MCPServer / auth 모듈 포함 버전)
+
+---
+
 ## [26.3.6] - 2026-06-22
 
 ### Fixed
