@@ -3,6 +3,7 @@ import os
 import uvicorn
 from pathlib import Path
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 
 SKILLS_DIR = Path(__file__).parent.parent / "skills"
 
@@ -30,8 +31,12 @@ def get_skill(name: str) -> str:
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
-    # MCP_HOST: host validation용 외부 도메인 (리버스 프록시 뒤에서 Host 헤더 검증)
-    # uvicorn은 항상 0.0.0.0 바인딩
-    mcp.settings.host = os.environ.get("MCP_HOST", "localhost")
+    mcp_host = os.environ.get("MCP_HOST", "localhost")
+    # MCP_HOST를 allowed_hosts에 등록해 DNS rebinding 보호는 유지하면서 리버스 프록시 허용
+    mcp.settings.transport_security = TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        allowed_hosts=[mcp_host],
+    )
+    mcp.settings.host = mcp_host
     mcp.settings.port = port
     uvicorn.run(mcp.streamable_http_app(), host="0.0.0.0", port=port)

@@ -8,6 +8,14 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.3.6] - 2026-06-22
+
+### Fixed
+
+- `mcp/server.py`: DNS rebinding 보호 설정 수정 — `TransportSecuritySettings.allowed_hosts`에 `MCP_HOST` 등록하여 리버스 프록시 환경에서 Host 헤더 검증 통과
+
+---
+
 ## [26.3.5] - 2026-06-22
 
 ### Fixed
