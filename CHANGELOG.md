@@ -8,6 +8,14 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.3.2] - 2026-06-22
+
+### Fixed
+
+- `mcp/install.sh`: `REPO_DIR` 변수 정의 위치를 스크립트 상단으로 이동 — venv 생성 전 미정의 오류 해결
+
+---
+
 ## [26.3.1] - 2026-06-22
 
 ### Fixed
