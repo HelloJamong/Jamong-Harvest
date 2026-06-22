@@ -9,7 +9,7 @@ from starlette.exceptions import HTTPException
 from starlette.requests import Request
 from starlette.responses import HTMLResponse, RedirectResponse, Response
 
-from mcp.server.mcpserver.server import MCPServer
+from mcp.server.fastmcp import FastMCP as MCPServer
 from mcp.server.auth.provider import (
     AccessToken,
     AuthorizationCode,
