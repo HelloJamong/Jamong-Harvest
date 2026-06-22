@@ -194,14 +194,10 @@ if __name__ == "__main__":
         redirect = construct_redirect_uri(state_data["redirect_uri"], code=code, state=state)
         return RedirectResponse(url=redirect, status_code=302)
 
-    uvicorn.run(
-        mcp.streamable_http_app(
-            host=mcp_host,
-            transport_security=TransportSecuritySettings(
-                enable_dns_rebinding_protection=True,
-                allowed_hosts=[mcp_host],
-            ),
-        ),
-        host="0.0.0.0",
-        port=port,
+    mcp.settings.transport_security = TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        allowed_hosts=[mcp_host],
     )
+    mcp.settings.host = mcp_host
+    mcp.settings.port = port
+    uvicorn.run(mcp.streamable_http_app(), host="0.0.0.0", port=port)

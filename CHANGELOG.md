@@ -8,6 +8,14 @@ All notable changes to Jamong-Harvest will be documented in this file.
 
 ---
 
+## [26.4.4] - 2026-06-22
+
+### Fixed
+
+- `mcp/server.py`: `streamable_http_app()` 인자에서 `host`, `transport_security` 제거 — PyPI 1.28.0 FastMCP는 해당 파라미터 미지원, `mcp.settings`로 분리
+
+---
+
 ## [26.4.3] - 2026-06-22
 
 ### Fixed
